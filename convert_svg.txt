@@ -1,7 +1,13 @@
 magick -density 384 favicon.svg -define icon:auto-resize favicon.ico
+magick -background "#002030" -density 384 favicon.svg -define icon:auto-resize favicon.ico
 
 magick -background "none" -density 144 favicon.svg -define icon:auto-resize favicon.png
 
 magick -background "none" -depth 8 favicon.svg -define icon:auto-resize -resize "512x512" logo512.png
 
 magick -background "none" -size "512x512" -depth 8 favicon.svg logo512.png
+magick -background "none" -size "192x192" -depth 8 favicon.svg logo192.png
+
+
+magick -background "transparent" -density 256x256 favicon.svg -define icon:auto-resize -colors 256 favicon.ico
+magick -background "transparent" -density 384 favicon.svg -define icon:auto-resize favicon.ico
