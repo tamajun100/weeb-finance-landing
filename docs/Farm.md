@@ -9,7 +9,7 @@ Unlike traditional farms which are mainly staking pools of different assets with
 
 An investor deposits a token or a liquidity pair token to a farm of their chosing (collateral part).
 
-The protocol then calculates the WEEB token equivalent value of that deposited token amout through decentralized exchanges (DEX) where their liquidities reside and credits/mints that WEEB token amount to the investor's account (lending part).
+The protocol then calculates the WEEB token equivalent value of that deposited token amout through decentralized exchanges (DEX) where their liquidities reside and credits/mints that WEEB token amount to the investor's account as locked balance which can not be transferred (lending part).
 Once obtaining the WEEB token the investor starts to generate yield right away.
 This action, temporarily increases the supply (temporarily becasuse when lender returns the credit supply will decrease) and allows infaltion to be regulated automatically and dynamically from a single place unlike classic farms which don't have such mechanisms.
 WEEB token's built-in inflation regulator increases/decreases emissions and burns under certain conditions to balance the price.
@@ -17,10 +17,8 @@ WEEB token's built-in inflation regulator increases/decreases emissions and burn
 Since the credit amount is calculated at the deposit time and prices are in a constant fluctuation the investor may be holding more or less WEEB tokens for their deposit at a later time.
 This is a situation which must be rebalanced for the investor to increase their earnings or for the protocol to not be abused by generating more yield than it should.
 
-Due to the reason that the investor may want their deposited/collateral asset back at a later time the credited WEEB amount is locked in investor's acount and can not be traded but increases the investor's balance thus making them generate more yield per tokens held.
+Due to the reason that the investor may want their deposited/collateral asset back at a later time the credited WEEB amount is locked in investor's acount and can not be traded/transferred but increases the investor's balance thus making them generate more yield per tokens held.
 When the credited WEEB amount is returned their deposited asset is freed and the credited WEEB amount is burned to reduce the supply.
-
-
 
 ---
 &nbsp;
