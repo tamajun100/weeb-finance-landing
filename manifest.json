@@ -8,12 +8,12 @@
       "type": "image/svg+xml"
     },
     {
-      "src": "logo192.png",
+      "src": "images/weebfi-logo-192px.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "images/weebfi-logo-512px.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -47,7 +47,7 @@ Along with the non-custodial yield farming model there are more unique propertie
 Unlike pre-minting huge amounts of tokens and creating diluted price from the beginning, WEEB uses dynamic supply model where tokens are minted as new blocks are mined.
 This creates supply shortage and helps the price appreciation.
 
-This model is also the backbone of the new hybrid yield farming model where investor receives minted WEEB tokens for their deposited assets where those received WEEB tokens act as locked balance inside their total balance which generate yield but are not tradable/transferrable. On return of the locked supply (could be partial return) corresponding deposit is released and the returned tokens are burned thus supply is decreased.
+This model is also the backbone of the new hybrid yield farming model where investor receives minted WEEB tokens for their deposited assets where those received WEEB tokens act as locked balance inside their total balance which generate yield but are not tradable/transferrable. On return of the locked supply (could be partial returned) corresponding deposit is released and the returned tokens are burned thus supply is decreased.
 [Ref. to Farms]
 
 &nbsp;
@@ -69,7 +69,7 @@ Tokens are minted for each block and distributed to the investors according to t
 If the inflation is not absorbed by new investors or thru token burns it may start to have a negative effect on the price as the investors may choose to sell what they've earned.
 To prevent that undesired situation WEEB uses dual burning mechanisms.
 
-1. Transfer burn which has a constant burn rate and is applied on every transaction except sell transactions.
+1. Transfer burn which has a constant burn rate and is applied on every transaction except sell transactions and transfers from contracts.
 1. Sales burn which has a variable burn rate and is applied only on sell transactions.
 
 The token's price is periodically tracked by the built-in price oracle and as the current price deviates from the tracked time-weighted average price (TWAP), either above or below it, the sales burn rate proportionally increases to make selling less attractive and to favor holding.
@@ -90,6 +90,41 @@ The accounts holding certain amount of tokens have burn rate rebates, both in tr
 This incentivizes investors to buy and hold more tokens by matching the dynamic minimum required amount which is a percentage of the dynamic supply.
 
 &nbsp;
+
+Which burn rate?
+if sender is contract or sender is nonburnable the burn rate is 0;
+totalSupply can not go below minimumSupply,
+if (totalSupply() > minimumSupply) {
+    burn;
+} else {
+    burn rate is 0;
+}
+Burns can not decrease totalSupply below minimumSupply.
+
+
+    function _burnRateOf(address recipient) internal view override returns (uint256) {
+        // Is sell event?
+        if (_isInflationRegulated() && recipient == liquidityPair) {
+            return _currentSalesBurnRate();
+        } else {
+            return transferBurnRate;
+        }
+    }
+
+    function _checkedBurnAmountOf(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) internal view returns (uint256) {
+        // Since contracts don't earn rewards they should also don't burn.
+        // If sender is marked non burnable or if the transaction originated from an address marked non burnable (like a _msgSender() executing a farm contract method which calls transferFrom where sender is farm contract).
+        if (sender.isContract() || nonburnables[sender] || nonburnables[_msgSender()]) {
+            return 0;
+        }
+
+        return _burnAmountOf(recipient, amount);
+    }
+
 
 1. Non-custodial yield farming.
 

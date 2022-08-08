@@ -1,6 +1,6 @@
 # Weeb Games
 
-Initially there are 2 blokchain games. The classic **Flip a Coin** and **Roll a Dice** games.
+Initially there are 3 blokchain games. The classic **Flip a Coin**, **Bim Bam Bom** and **Roll a Dice** games.
 
 ## How games work?
 
@@ -19,6 +19,14 @@ The classic Flip a Coin game, heads or tails.
 The highest win rate game with a winning probability of 1/2.
 
 The easiest way to double your money!
+
+&nbsp;
+
+## Bim Bam Bom
+
+A game of our own creation having 3 outcomes, bim, bam and bom with a winning probability of 1/3.
+
+The easiest way to tripple your money!
 
 &nbsp;
 

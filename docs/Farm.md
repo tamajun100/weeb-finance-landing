@@ -3,6 +3,9 @@
 WEEB token is the main actor in the Weeb Finance ecosystem.
 Due to it's intrinsic staking and inflation regulation mechanisms it allows for new and unique products to be created, Weeb Farms being one of them.
 
+***Most DeFi protocols use over-collateralisation, meaning you must put up more than the amount you want to borrow. So if the asset’s value plummets, the protocol may take your collateral to avoid losses.
+WEEB uses under-collateralisation with rebalancing model........***
+
 Unlike traditional farms which are mainly staking pools of different assets with distinct and static emission rates (multipliers) cause rapid increases in token supplies where teams periodically do buybacks and token burns to lift prices by limiting the supply of tokens available for sale, Weeb Farms evolved around the WEEB token's built in staking and inflation regulation mechanisms provided a more controlled emission and buyback methods to be achieved thus arised to hybrid farms which are combination of classic farming and lending mechanisms.
 
 **How is this happening?**
